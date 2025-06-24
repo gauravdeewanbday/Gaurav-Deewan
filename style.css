@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Chalkduster&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Chalkduster', cursive, sans-serif;
+  background: #264d26;
+  color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.7);
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.4rem;
+  opacity: 0;
+  animation: fadeSlideIn 1s ease-out forwards;
+}
+
+#greeting {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeSlideIn 1s ease-out 0.5s forwards;
+}
+
+@keyframes fadeSlideIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+#scene {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 2rem;
+}
+
+#tree {
+  position: absolute;
+  left: 5%;
+  top: 0;
+  height: 320px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#portrait-container {
+  position: absolute;
+  bottom: -27%;
+  left: 20%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 200px;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeSlideIn 1s ease-out 0.8s forwards;
+  transition: transform 1s ease-out;
+}
+
+#portrait-container.turn {
+  transform: translateX(-50%) rotateY(-25deg);
+}
+
+#newtonImage {
+  width: 65%;
+  height: auto;
+}
+
+/* Angry face bubble */
+@keyframes bubble {
+  0%   { opacity: 0; transform: translate(-50%, 10px) scale(0.5); }
+  50%  { opacity: 1; transform: translate(-50%, -10px) scale(1.2); }
+  100% { opacity: 0; transform: translate(-50%, -30px) scale(1); }
+}
+
+#portrait-container.angry::after {
+  content: '😠';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  animation: bubble 1.5s ease-out forwards;
+}
+
+#continueBtn {
+  position: absolute;
+  bottom: 20px;
+  background: transparent;
+  border: none;
+  color: #f3f3f3;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  opacity: 0;
+  animation: fadeSlideIn 1s ease-out 1.2s forwards, smoothBlink 2s ease-in-out 2s infinite;
+}
+
+@keyframes smoothBlink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+#continueBtn:hover {
+  animation-play-state: paused;
+  opacity: 1 !important;
+}
+
+/* Apple animations */
+.apple {
+  position: absolute;
+  font-size: 1.5rem;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to { transform: translateY(120vh); }
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-40px); }
+  100% { transform: translateY(120vh); }
+}
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Congratulations!</title>
+  <style>
+    body {
+      background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
+      color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 3rem;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #00ffcc;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #ffeb3b;
+      margin-bottom: 2rem;
+    }
+
+    .emoji {
+      font-size: 4rem;
+      animation: pulse 1s infinite;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.7rem 1.4rem;
+      font-size: 1.1rem;
+      background: #00e676;
+      border: none;
+      border-radius: 6px;
+      color: #000;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00c853;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="emoji">🏆</div>
+  <h1>You Did It!</h1>
+  <h2>You've completed all quiz levels — including the Extreme Challenge!<pre>
+    
+  </pre>
+    That's Why we Call you our Physics teacher
+    
+  </h2>
+  <p>Sir Isaac Newton would be proud of your physics mastery 🧠⚙️</p>
+
+  <button onclick="window.location.href='thanks.html'">Next</button>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!-- results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Results</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: #00e676;
+      font-size: 2rem;
+    }
+
+    .result {
+      margin-top: 2rem;
+      font-size: 1.3rem;
+    }
+
+    .result span {
+      color: #ffc107;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.6rem 1.4rem;
+      font-size: 1rem;
+      background: #00bcd4;
+      border: none;
+      border-radius: 4px;
+      color: #000;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #008ba3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Your Quiz Results</h1>
+
+  <div class="result" id="resultBox">
+    <!-- Filled by JS -->
+  </div>
+
+ <button onclick="window.location.href='best.html'">Next ➡️</button>
+
+
+  <script>
+    const correct = parseInt(localStorage.getItem("correctCount")) || 0;
+    const total = parseInt(localStorage.getItem("totalCount")) || 5;
+
+    const wrong = total - correct;
+    const box = document.getElementById("resultBox");
+
+    box.innerHTML = `
+      <p>You answered <span>${correct}</span> out of <span>${total}</span> questions correctly.</p>
+      <p><span>${wrong}</span> questions were incorrect.</p>
+    `;
+
+    // Optional: clear localStorage after viewing
+    localStorage.removeItem("correctCount");
+    localStorage.removeItem("totalCount");
+  </script>
+
+</body>
+</html>

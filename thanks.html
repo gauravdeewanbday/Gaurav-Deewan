@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You!</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #00ffd5;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: #ffeb3b;
+    }
+
+    .emoji {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    button {
+      padding: 0.6rem 1.4rem;
+      font-size: 1rem;
+      background: #00e676;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00c853;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="emoji">🌟</div>
+  <h1>Thank You!</h1>
+  <p>We hope you enjoyed this journey through Newtonian physics.<br>You’ve made Sir Isaac Newton proud!</p>
+
+  <button onclick="window.location.href='index.html'">🏠 Return to Start</button>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Extreme Level Quiz</title>
+  <style>
+    body {
+      background: #000;
+      color: #f5f5f5;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: #ff1744;
+      text-align: center;
+      font-size: 2.5rem;
+    }
+
+    .question {
+      margin: 2rem 0;
+    }
+
+    .question p {
+      font-weight: bold;
+      color: #64ffda;
+    }
+
+    .options label {
+      display: block;
+      margin: 0.4rem 0;
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      background: #ff1744;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #d50000;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔥 Extreme Physics Challenge 🔥</h1>
+
+  <div class="question">
+    <p>1. A lift is moving upward with acceleration 'a'. A ball is dropped from the ceiling. What is the acceleration of the ball relative to the lift?</p>
+    <div class="options">
+      <label><input type="radio" name="q1"> g</label>
+      <label><input type="radio" name="q1"> g + a</label>
+      <label><input type="radio" name="q1"> g - a</label>
+      <label><input type="radio" name="q1"> a</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>2. Two blocks (10 kg and 5 kg) are connected via a pulley. The 10 kg block is on a smooth incline (30°), the 5 kg hangs freely. What is the acceleration of the system?</p>
+    <div class="options">
+      <label><input type="radio" name="q2"> 1.4 m/s²</label>
+      <label><input type="radio" name="q2"> 0.5 m/s²</label>
+      <label><input type="radio" name="q2"> 2 m/s²</label>
+      <label><input type="radio" name="q2"> 3.6 m/s²</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>3. A block is pushed against a wall with force F. The coefficient of friction is μ. What is the maximum mass it can hold without sliding down?</p>
+    <div class="options">
+      <label><input type="radio" name="q3"> μF/g</label>
+      <label><input type="radio" name="q3"> F/μg</label>
+      <label><input type="radio" name="q3"> μg/F</label>
+      <label><input type="radio" name="q3"> Fμ</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>4. A car accelerates from rest with constant acceleration. The ratio of the distance covered in the 5th second to that in the 6th second is:</p>
+    <div class="options">
+      <label><input type="radio" name="q4"> 5:6</label>
+      <label><input type="radio" name="q4"> 11:13</label>
+      <label><input type="radio" name="q4"> 9:11</label>
+      <label><input type="radio" name="q4"> 19:21</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>5. A monkey of mass 10 kg climbs a rope hanging from a ceiling. If the rope tension is 150 N upward, what is its acceleration?</p>
+    <div class="options">
+      <label><input type="radio" name="q5"> 5 m/s²</label>
+      <label><input type="radio" name="q5"> 10 m/s²</label>
+      <label><input type="radio" name="q5"> 15 m/s²</label>
+      <label><input type="radio" name="q5"> 0 m/s²</label>
+    </div>
+  </div>
+
+  <button onclick="submitExtremeQuiz()">Submit</button>
+
+  <script>
+    function submitExtremeQuiz() {
+      const answers = {
+        q1: "g + a",        // Relative acceleration = g + a (upward)
+        q2: "0.5 m/s²",     // Tension + component balance on incline
+        q3: "μF/g",         // Friction = μN = μF = mg ⇒ m = μF/g
+        q4: "11:13",        // nth second: Sₙ = u + a/2(2n-1)
+        q5: "5 m/s²"        // T - mg = ma ⇒ a = (150 - 100)/10 = 5
+      };
+
+      let correct = 0;
+      for (let q in answers) {
+        const opts = document.getElementsByName(q);
+        for (let opt of opts) {
+          if (opt.checked && opt.parentElement.textContent.trim() === answers[q]) {
+            correct++;
+          }
+        }
+      }
+
+      localStorage.setItem("correctCount", correct);
+      localStorage.setItem("totalCount", 5);
+      window.location.href = "results2.html";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Newtonian Motion Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #101820;
+      color: #f0f0f0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffc107;
+      margin-bottom: 2rem;
+    }
+
+    .question {
+      margin-bottom: 2rem;
+    }
+
+    .question p {
+      font-weight: bold;
+      color: #00e5ff;
+    }
+
+    .options label {
+      display: block;
+      margin: 0.4rem 0;
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      background: #00bcd4;
+      border: none;
+      border-radius: 4px;
+      color: #000;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0097a7;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Newtonian Motion Challenge</h1>
+
+  <div class="question">
+    <p>1. A body is thrown vertically upward with a speed of 20 m/s. How long will it take to return to the thrower's hand? (g = 10 m/s²)</p>
+    <div class="options">
+      <label><input type="radio" name="q1"> 2 s</label>
+      <label><input type="radio" name="q1"> 4 s</label>
+      <label><input type="radio" name="q1"> 1 s</label>
+      <label><input type="radio" name="q1"> 3 s</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>2. A car accelerates from rest at 2 m/s². What is the distance covered in the 5th second?</p>
+    <div class="options">
+      <label><input type="radio" name="q2"> 9 m</label>
+      <label><input type="radio" name="q2"> 18 m</label>
+      <label><input type="radio" name="q2"> 25 m</label>
+      <label><input type="radio" name="q2"> 10 m</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>3. A 5 kg object is pushed with a force of 20 N. What is the acceleration?</p>
+    <div class="options">
+      <label><input type="radio" name="q3"> 4 m/s²</label>
+      <label><input type="radio" name="q3"> 5 m/s²</label>
+      <label><input type="radio" name="q3"> 2 m/s²</label>
+      <label><input type="radio" name="q3"> 10 m/s²</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>4. Two blocks of mass 2 kg and 4 kg are connected by a light string and pulled with 18 N on a frictionless surface. What is the tension in the string between them?</p>
+    <div class="options">
+      <label><input type="radio" name="q4"> 6 N</label>
+      <label><input type="radio" name="q4"> 9 N</label>
+      <label><input type="radio" name="q4"> 12 N</label>
+      <label><input type="radio" name="q4"> 3 N</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>5. A lift accelerates upward at 2 m/s². What is the apparent weight of a 50 kg man inside it? (g = 10 m/s²)</p>
+    <div class="options">
+      <label><input type="radio" name="q5"> 500 N</label>
+      <label><input type="radio" name="q5"> 600 N</label>
+      <label><input type="radio" name="q5"> 400 N</label>
+      <label><input type="radio" name="q5"> 100 N</label>
+    </div>
+  </div>
+
+  <button onclick="submitQuiz()">Submit</button>
+  <script>
+function submitQuiz() {
+  const correctAnswers = {
+    q1: "4 s",      // returns in 4 seconds
+    q2: "18 m",     // distance in 5th second = a(2n-1)/2 = 2(9)/2 = 9m
+    q3: "4 m/s²",   // F = ma → a = 20/5 = 4
+    q4: "12 N",     // system a = F/m = 18/6 = 3 → T = 4×3 = 12
+    q5: "600 N"     // apparent = m(g+a) = 50×(10+2)
+  };
+
+  let correct = 0;
+  let total = 5;
+
+  for (let q in correctAnswers) {
+    const options = document.getElementsByName(q);
+    for (let opt of options) {
+      if (opt.checked && opt.parentElement.textContent.trim() === correctAnswers[q]) {
+        correct++;
+      }
+    }
+  }
+
+  // Store result and go to result page
+  localStorage.setItem("correctCount", correct);
+  localStorage.setItem("totalCount", total);
+  window.location.href = "results.html";
+}
+</script>
+
+</body>
+</html>
