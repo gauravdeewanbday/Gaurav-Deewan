@@ -1,45 +1,65 @@
-const portrait = document.getElementById('portrait-container');
-const tree = document.getElementById('tree');
-const treeRect = () => tree.getBoundingClientRect();
 
-function createApple() {
-  const apple = document.createElement('div');
-  apple.className = 'apple';
-  apple.textContent = '🍎';
+// --- Newton’s Birthday Scene (2 Bubbles + Left-Offset Placement) ---
+document.addEventListener("DOMContentLoaded", () => {
+  const scene = document.getElementById("scene");
+  const newton = document.getElementById("portrait-container");
+  const nextBtn = document.getElementById("nextBtn");
+  const stage1 = document.getElementById("stage1");
+  const stage2 = document.getElementById("stage2");
 
-  const tr = treeRect();
-  const x = tr.left + 20 + Math.random() * (tr.width - 40);
-  apple.style.left = x + 'px';
+  let thoughtCount = 0;
+  let bubbleInterval;
 
-  const duration = 3 + Math.random() * 2;
-  apple.style.animation = `fall ${duration}s linear forwards`;
-  document.body.appendChild(apple);
+  // Start apples and Newton's brief thinking moment
+  setTimeout(() => startThinking(), 1500);
 
-  const startY = -50, endY = window.innerHeight + 50;
-  const pr = portrait.getBoundingClientRect();
-  const collisionY = pr.top + pr.height * 0.2;
-  const collideTime = duration * ((collisionY - startY)/(endY - startY));
+  function spawnApple() {
+    const apple = document.createElement("img");
+    apple.src = "apple.png";
+    apple.classList.add("apple");
+    apple.style.left = 50 + (Math.random() * 40 - 20) + "%";
+    apple.style.top = "-60px";
+    scene.appendChild(apple);
+    setTimeout(() => apple.remove(), 3000);
+  }
 
-  setTimeout(() => triggerImpact(apple), collideTime * 1000);
-}
+  // Slightly offset bubble to left (~20%)
+  function spawnBubble() {
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
+    bubble.textContent = "🤔  Chalo bachche pareshan karte hai!";
+    newton.appendChild(bubble);
 
-function triggerImpact(apple) {
-  apple.style.animation = `bounce 1s ease-out forwards`;
-  portrait.classList.add('angry');
-  setTimeout(() => portrait.classList.remove('angry'), 1800);
-  setTimeout(() => apple.remove(), 1000);
-}
+    // Custom left offset (20%)
+    bubble.style.left = "20%";
 
-// Start apples
-setInterval(createApple, 500);
+    setTimeout(() => bubble.remove(), 3500);
+  }
 
-// Turn Newton after a moment
-setTimeout(() => {
-  portrait.classList.add('turn');
-}, 2000);
+  // Only two bubbles, then silence
+  function startThinking() {
+    bubbleInterval = setInterval(() => {
+      if (thoughtCount < 2) {
+        spawnBubble();
+        thoughtCount++;
+      } else {
+        clearInterval(bubbleInterval);
+      }
+    }, 2600);
 
-document.getElementById('continueBtn')
-  .addEventListener('click', () => {
-    window.location.href = 'questions.html';
+    // Apples continue falling forever
+    setInterval(spawnApple, 1000);
+  }
+
+  // Transition to gravity roast section
+  nextBtn.addEventListener("click", () => {
+    stage1.classList.remove("active");
+    setTimeout(() => {
+      stage2.classList.add("active");
+      const lines = document.querySelectorAll(".sarcasm p");
+      lines.forEach((line, i) => {
+        line.style.animationDelay = `${i * 0.35}s`;
+      });
+    }, 800);
   });
-
+});

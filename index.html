@@ -2,23 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday, Sir Isaac Newton!</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Mr. Gaurav!</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <main id="scene">
 
-  <h1>🎉 Happy Birthday, Mr. Gaurav ! 🎉</h1>
-  <div id="greeting">Thank you for illuminating the laws of physics!</div>
+    <!-- Stage 1 -->
+    <section id="stage1" class="active">
+      <h1>🎉 Happy Birthday, Mr. Gaurav 🎉</h1>
+      <p class="tagline">
+        Thank you for illuminating the laws of physics<br>
+        and for proving patience has limits!
+      </p>
 
-  <div id="scene">
-    <img id="tree" src="image.webp" alt="Tree">
-    <div id="portrait-container">
-      <img id="newtonImage" src="newton.png" alt="Sir Isaac Newton">
-    </div>
-  </div>
+      <!-- Updated image container -->
+      <div id="portrait-container">
+        <img id="sceneImage" src="scene.png" alt="Newton's Apple Scene" />
+      </div>
 
-  <button id="continueBtn">Tap to Continue</button>
+      <button id="nextBtn">Next →</button>
+    </section>
+
+    <!-- Stage 2 -->
+    <section id="stage2">
+      <h1>🌌 When Gravity Turned Savage 🌌</h1>
+
+      <div class="sarcasm">
+        <p class="left">🍎 "Gravity pulled the apple; responsibility pulled me down."</p>
+        <p class="right">🧠 "Newton got ideas. I got bruises."</p>
+        <p class="left">📘 "Falling for physics was my biggest mistake."</p>
+        <p class="right">💡 "Gravity is consistent. My decisions aren’t."</p>
+        <p class="left">📚 "Free fall? Bro, that’s my life arc."</p>
+        <p class="right">🤯 "Force equals mass × anxiety."</p>
+        <p class="left">🧲 "Every action has an equal regret."</p>
+        <p class="right">🔭 "I discovered gravity; now it won’t leave me alone."</p>
+        <p class="left">🕶️ "Gravity keeps things grounded. My teacher keeps me grounded too."</p>
+        <p class="right">💥 "Potential energy: the nap before the chaos."</p>
+        <p class="left">🪨 "Kinetic energy? That’s me running from exams."</p>
+        <p class="right">💬 "The apple fell once. My marks keep falling every term."</p>
+        <p class="left">🌍 "Even gravity couldn’t keep my concentration down to Earth."</p>
+        <p class="right">⚙️ "Mass attracts mass — so why can’t my ideas attract marks?"</p>
+        <p class="left">💤 "Inertia: refusing to move since the dawn of assignments."</p>
+        <p class="right">☄️ "The heavier the object, the harder it falls… like my expectations."</p>
+        <p class="left">🧪 "Acceleration due to exams = panic × time²."</p>
+        <p class="right">🌑 "If upthrust was greater than weight, it could defeat gravity from pulling my marks down 🙃"</p>
+      </div>
+    </section>
+
+  </main>
 
   <script src="script.js"></script>
 </body>
